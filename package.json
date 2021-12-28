@@ -1,0 +1,27 @@
+{
+    "name": "curso-platzi-react-avanzado",
+    "version": "1.0.0",
+    "description": "https://infsoft.home.blog/",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack-dev-server",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yasniel1408/curso-platzi-react-avanzado.git"
+    },
+    "author": "Yasniel Fajardo Egues",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/yasniel1408/curso-platzi-react-avanzado/issues"
+    },
+    "homepage": "https://github.com/yasniel1408/curso-platzi-react-avanzado#readme",
+    "devDependencies": {
+        "html-webpack-plugin": "^5.5.0",
+        "webpack": "^5.65.0",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.7.1"
+    }
+}
