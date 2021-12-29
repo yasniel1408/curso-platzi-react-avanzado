@@ -1,6 +1,6 @@
 const db = require('../adapter')
 
-function list () {
+function list() {
   return db.get('categories').value()
 }
 
