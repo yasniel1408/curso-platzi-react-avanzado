@@ -5,6 +5,7 @@
   "description": "https://infsoft.home.blog/",
   "main": "index.ts",
   "scripts": {
+    "vercel-build": "tsc && yarn build",
     "dev": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "lint": "standard",
