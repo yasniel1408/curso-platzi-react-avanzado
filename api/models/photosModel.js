@@ -1,6 +1,6 @@
 const db = require('../adapter')
 
-function find({ id, favs = [] }) {
+function find ({ id, favs = [] }) {
   const photo = db
     .get('photos')
     .find({ id: +id })
@@ -11,7 +11,7 @@ function find({ id, favs = [] }) {
   }
 }
 
-function addLike({ id }) {
+function addLike ({ id }) {
   return db
     .get('photos')
     .find({ id: +id })
@@ -19,7 +19,7 @@ function addLike({ id }) {
     .write()
 }
 
-function removeLike({ id }) {
+function removeLike ({ id }) {
   return db
     .get('photos')
     .find({ id: +id })
@@ -27,7 +27,7 @@ function removeLike({ id }) {
     .write()
 }
 
-function list({ categoryId, ids, favs = [] }) {
+function list ({ categoryId, ids, favs = [] }) {
   let photos
   if (categoryId && categoryId !== 'all') {
     photos = db
