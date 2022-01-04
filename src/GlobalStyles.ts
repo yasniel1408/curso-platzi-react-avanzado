@@ -15,7 +15,8 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         ul {
-                list-style: none;
+            list-style: none;
+            padding: 2px;
         }
 
         button {
@@ -53,13 +54,13 @@ export const GlobalStyle = createGlobalStyle`
         } 
         
         *::-webkit-scrollbar:horizontal {
-            height: 10px;
+            height: 8px;
         }
         
         *::-webkit-scrollbar-thumb {
             background-color: #79797908;
             border-radius: 20px;
-            border: 2px solid #f1f2f3;
+            border: 3px solid #f1f2f3;
         }
         
         *::-webkit-scrollbar-track {
