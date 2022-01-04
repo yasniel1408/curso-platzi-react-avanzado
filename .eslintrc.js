@@ -2,20 +2,28 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
-  extends: ['plugin:react/recommended', 'standard'],
+  extends: ['plugin:react/recommended', 'airbnb', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 13,
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'jsx-a11y',
+    'import',
+    'react-hooks',
+    'prettier',
+    'promise',
+  ],
   rules: {
     'no-use-before-define': ['off', { functions: true }],
-    'react/jsx-runtime': ['off']
-  }
-}
+    'react/jsx-runtime': ['off'],
+  },
+};

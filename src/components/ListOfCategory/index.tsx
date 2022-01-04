@@ -1,16 +1,16 @@
-import React, { FC, useEffect } from 'react'
-import { Category } from '../Category'
-import { useCategoriesData } from './hooks/useCategoriesData'
-import { useFixedCategories } from './hooks/useFixedCategories'
-import { Item, List } from './styled'
+import React, { FC, useEffect } from 'react';
+import { Category } from '../Category';
+import { useCategoriesData } from './hooks/useCategoriesData';
+import { useFixedCategories } from './hooks/useFixedCategories';
+import { Item, List } from './styled';
 
 export const ListOfCategory: FC = () => {
-  const { getCategories, categories, loading, error } = useCategoriesData()
-  const { showFixed } = useFixedCategories()
+  const { getCategories, categories, loading, error } = useCategoriesData();
+  const { showFixed } = useFixedCategories();
 
   useEffect(() => {
-    getCategories()
-  }, [getCategories])
+    getCategories();
+  }, [getCategories]);
 
   const renderList = (fixed: boolean = false) => (
     <List fixed={fixed}>
@@ -21,14 +21,14 @@ export const ListOfCategory: FC = () => {
         </Item>
       ))}
     </List>
-  )
+  );
 
-  if (loading) return <>Loading...</>
+  if (loading) return <>Loading...</>;
 
   return (
     <>
       {renderList()}
       {showFixed && renderList(true)}
     </>
-  )
-}
+  );
+};

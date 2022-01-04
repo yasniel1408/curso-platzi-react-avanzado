@@ -1,15 +1,15 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
         html {
                 box-sizing: border-box;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        
+
         *, *::before, *::after {
                 box-sizing: inherit;
         }
-        
+
         ul, li, h1, h2, h3, p, button {
                 margin: 0;
         }
@@ -44,26 +44,26 @@ export const GlobalStyle = createGlobalStyle`
         *::-webkit-scrollbar {
             -webkit-appearance: none;
         }
-        
+
         *::-webkit-scrollbar:vertical {
             width:10px;
         }
-        
+
         *::-webkit-scrollbar-button:increment,*::-webkit-scrollbar-button {
             display: none;
-        } 
-        
+        }
+
         *::-webkit-scrollbar:horizontal {
             height: 8px;
         }
-        
+
         *::-webkit-scrollbar-thumb {
             background-color: #79797908;
             border-radius: 20px;
             border: 3px solid #f1f2f3;
         }
-        
+
         *::-webkit-scrollbar-track {
-            border-radius: 10px;  
+            border-radius: 10px;
         }
-`
+`;

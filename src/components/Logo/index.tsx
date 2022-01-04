@@ -1,17 +1,18 @@
-import React, { FC } from 'react'
-import { Svg } from './styled'
+import React, { FC } from 'react';
+import { Svg } from './styled';
 
-export const Logo: FC = props => (
+export const Logo: FC = (props) => (
   <Svg
     width={385.475}
     height={122}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="57.263 14 385.475 122"
     style={{
-      background: '0 0'
+      background: '0 0',
     }}
     preserveAspectRatio="xMidYMid"
-    {...props}>
+    {...props}
+  >
     <defs>
       <linearGradient id="b" x1={0} x2={1} y1={0.5} y2={0.5} gradientUnits="objectBoundingBox">
         <stop offset={0} stopColor="#f0f" />
@@ -36,4 +37,4 @@ export const Logo: FC = props => (
       />
     </g>
   </Svg>
-)
+);
