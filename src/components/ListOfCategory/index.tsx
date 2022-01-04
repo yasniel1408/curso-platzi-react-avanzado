@@ -27,8 +27,8 @@ export const ListOfCategory: FC = () => {
     [showFixed]
   )
 
-  const renderList = (fixed: any = false) => (
-    <List className={fixed ? 'fixed' : ''}>
+  const renderList = (fixed: boolean = false) => (
+    <List {...fixed}>
       {categories.map((category: any) => (
         <Item key={category.id}>
           <Category {...category} />
