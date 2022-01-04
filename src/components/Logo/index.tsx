@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
+import { Svg } from './styled'
 
-export const SvgComponent: FC = props => (
-  <svg
+export const Logo: FC = props => (
+  <Svg
     width={387.931}
     height={122}
     xmlns="http://www.w3.org/2000/svg"
@@ -34,5 +35,5 @@ export const SvgComponent: FC = props => (
         transform="translate(117.995 101.21)"
       />
     </g>
-  </svg>
+  </Svg>
 )
