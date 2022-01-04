@@ -1,34 +1,20 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect } from 'react'
 import { Category } from '../Category'
+import { useCategoriesData } from './hooks/useCategoriesData'
+import { useFixedCategories } from './hooks/useFixedCategories'
 import { Item, List } from './styled'
 
 export const ListOfCategory: FC = () => {
-  const [categories, setCategories] = useState([])
-  const [showFixed, setShowFixed] = useState(false)
+  const { getCategories, categories, loading, error } = useCategoriesData()
+  const { showFixed } = useFixedCategories()
 
   useEffect(() => {
-    const onload = async () => {
-      const res = await fetch('https://petgram-server-livid.vercel.app/categories')
-      const json = await res.json()
-      setCategories(json)
-    }
-    onload()
-  }, [])
-
-  useEffect(
-    function () {
-      const onScroll = () => {
-        const newShowFixed = window.scrollY > 200
-        showFixed !== newShowFixed && setShowFixed(newShowFixed)
-      }
-      document.addEventListener('scroll', onScroll)
-      return () => document.removeEventListener('scroll', onScroll)
-    },
-    [showFixed]
-  )
+    getCategories()
+  }, [getCategories])
 
   const renderList = (fixed: boolean = false) => (
-    <List {...fixed}>
+    <List fixed={fixed}>
+      {error}
       {categories.map((category: any) => (
         <Item key={category.id}>
           <Category {...category} />
@@ -36,6 +22,8 @@ export const ListOfCategory: FC = () => {
       ))}
     </List>
   )
+
+  if (loading) return <>Loading...</>
 
   return (
     <>
