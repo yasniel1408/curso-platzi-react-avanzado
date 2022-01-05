@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useLazyQuery } from '@apollo/client';
-import { getPhotos } from './gql/getPhotos';
+import { GET_PHOTOS } from './gql/getPhotos';
 
 export const useQueryPhotosData = ({ categoryId = '2' }) => {
-  const [loadGreeting, { called, loading, data }] = useLazyQuery(getPhotos, {
+  const [loadGreeting, { called, loading, data }] = useLazyQuery(GET_PHOTOS, {
     variables: { categoryId },
   });
 
