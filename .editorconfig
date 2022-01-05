@@ -8,7 +8,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{ts,tsx}]
+[*.{ts,tsx,js,jsx}]
 editor.defaultFormatter = "esbenp.prettier-vscode",
 editor.formatOnSave = true,
 

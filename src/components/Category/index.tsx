@@ -9,11 +9,9 @@ type AppProps = {
   emoji?: string;
 };
 
-export const Category: FC<AppProps> = ({ cover = DEFAULT_IMAGE, path, emoji = '?' }) => {
-  return (
-    <Anchor href={path}>
-      <Image src={cover} />
-      {emoji}
-    </Anchor>
-  );
-};
+export const Category: FC<AppProps> = ({ cover = DEFAULT_IMAGE, path, emoji = '?' }) => (
+  <Anchor href={path}>
+    <Image src={cover} />
+    {emoji}
+  </Anchor>
+);

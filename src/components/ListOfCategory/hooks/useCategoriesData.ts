@@ -12,10 +12,15 @@ export const useCategoriesData = () => {
       const json = await res.json();
       setCategories(json);
       setLoading(false);
-    } catch (error: any) {
-      setError(error?.message);
+    } catch (err: any) {
+      setError(err?.message);
     }
   }, []);
 
-  return { getCategories, categories, loading, error };
+  return {
+    getCategories,
+    categories,
+    loading,
+    error,
+  };
 };
