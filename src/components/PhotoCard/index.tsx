@@ -1,6 +1,7 @@
 import { useLocalStorage } from 'hooks/useLocalStorage';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
+import { useInView } from 'react-intersection-observer';
 import { ImgWrapper, Img, Button, Article } from './styled';
 
 const DEFAULT_IMAGE =
@@ -14,13 +15,14 @@ type AppProps = {
 };
 
 export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: AppProps) => {
-  const ref: any = useRef(null);
+  const { ref, inView } = useInView({
+    fallbackInView: true,
+  });
 
   const { getPersistData, savePersistData, data, loading, error } = useLocalStorage({
     key: `like-${id}`,
   });
 
-  const [show, setShow] = useState(false);
   const [like, setLike] = useState<Boolean | null>(data);
 
   useEffect(() => {
@@ -30,14 +32,6 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
   useEffect(() => {
     setLike(data);
   }, [data]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const { isIntersecting } = entries[0];
-      if (isIntersecting) setShow(true);
-    });
-    observer.observe(ref.current);
-  }, []);
 
   const Icon = like ? MdFavorite : MdFavoriteBorder;
 
@@ -49,7 +43,7 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
 
   return (
     <Article ref={ref}>
-      {show && (
+      {inView && (
         <>
           <a href={`/detail/${id}`}>
             <ImgWrapper>
