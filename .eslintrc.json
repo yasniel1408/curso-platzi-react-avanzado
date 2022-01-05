@@ -25,15 +25,39 @@
         "prettier"
     ],
     "rules": {
-      "import/prefer-default-export": ["off"],
-      "import/no-unresolved": ["off"],
-      "react/react-in-jsx-scope": ["off"],
-      "no-use-before-define":["off"],
-      "react/jsx-filename-extension": ["off"],
-      "react/function-component-definition": ["off"],
-      "react/jsx-one-expression-per-line": ["off"],
-      "import/extensions": ["off"],
-      "react/require-default-props": ["off"],
-      "react/jsx-props-no-spreading": ["off"]
+        "react/require-default-props": ["off"],
+        "import/prefer-default-export": ["off"],
+        "prettier/prettier": ["error", { "endOfLine": "auto" }, { "usePrettierrc": true }],
+        "import/no-unresolved": ["off"],
+        "import/extensions":["off"],
+        "react/function-component-definition":["off"],
+        "react/react-in-jsx-scope": ["off"],
+        "react/jsx-filename-extension": ["off"],
+        "react/forbid-prop-types": "off",
+        "react/jsx-props-no-spreading": "off",
+        "arrow-parens": "off",
+        "no-return-assign": ["off"],
+        "react/jsx-first-prop-new-line": "off",
+        "react/jsx-closing-bracket-location": "off",
+        "import/no-cycle": "off",
+        "no-use-before-define": ["off"],
+        "no-console": ["error"],
+        "react/prop-types": ["error"],
+        "import/no-absolute-path": ["off"],
+        "max-len": ["error", { "code": 100 }],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
+        "react/jsx-indent": ["error", 2],
+        "react/jsx-indent-props": ["error", 2],
+        "linebreak-style": 0,
+        "id-length": [
+            2,
+            {
+                "min": 3,
+                "exceptions": ["id", "e", "i", "me"]
+            }
+        ],
+        "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }]
+
     }
 }
