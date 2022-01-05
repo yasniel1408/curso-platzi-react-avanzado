@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/yasniel1408/curso-platzi-react-avanzadostatic/js/main.371f6edb.js",
-    "index.html": "/yasniel1408/curso-platzi-react-avanzadoindex.html",
-    "main.371f6edb.js.map": "/yasniel1408/curso-platzi-react-avanzadostatic/js/main.371f6edb.js.map"
+    "main.js": "./static/js/main.2e39a85f.js",
+    "index.html": "./index.html",
+    "main.2e39a85f.js.map": "./static/js/main.2e39a85f.js.map"
   },
   "entrypoints": [
-    "static/js/main.371f6edb.js"
+    "static/js/main.2e39a85f.js"
   ]
 }
