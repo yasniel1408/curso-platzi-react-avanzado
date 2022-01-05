@@ -15,7 +15,7 @@ export const useCategoriesData = () => {
     } catch (err: any) {
       setError(err?.message);
     }
-  }, []);
+  }, [setCategories, setLoading, setError]);
 
   return {
     getCategories,
