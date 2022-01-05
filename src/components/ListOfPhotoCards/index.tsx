@@ -6,6 +6,11 @@ const withPhotos = gql`
   query getPhotos {
     photos {
       id
+      likes
+      liked
+      src
+      categoryId
+      userId
     }
   }
 `;
@@ -23,8 +28,8 @@ export function ListOfPhotoCards() {
 
   return (
     <ul>
-      {data?.photos.map(({ id }: { id: string }) => (
-        <PhotoCard key={id} id={id} />
+      {data?.photos.map((photo: any) => (
+        <PhotoCard key={photo?.id} {...photo} />
       ))}
     </ul>
   );
