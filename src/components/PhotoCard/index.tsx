@@ -29,7 +29,7 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
 
   useEffect(() => {
     setLike(data);
-  }, [data, setLike]);
+  }, [data]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -37,7 +37,7 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
       if (isIntersecting) setShow(true);
     });
     observer.observe(ref.current);
-  }, [setShow]);
+  }, []);
 
   const Icon = like ? MdFavorite : MdFavoriteBorder;
 
