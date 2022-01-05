@@ -9,8 +9,7 @@ export const useLocalStorage = ({ key }: { key: string }) => {
     async ({ data: newData }) => {
       try {
         setLoading(true);
-        await Promise.resolve();
-        localStorage.setItem(key, JSON.stringify(newData));
+        await localStorage.setItem(key, JSON.stringify(newData));
         setLoading(false);
       } catch (err: any) {
         setError(err);
@@ -22,9 +21,7 @@ export const useLocalStorage = ({ key }: { key: string }) => {
   const getPersistData = useCallback(async () => {
     try {
       setLoading(true);
-      const element: any = Promise.resolve().then(() => {
-        return localStorage.getItem(key);
-      });
+      const element: any = await localStorage.getItem(key);
       setData(JSON.parse(element));
       setLoading(false);
     } catch (err: any) {
