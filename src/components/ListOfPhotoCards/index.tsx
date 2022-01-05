@@ -1,34 +1,14 @@
 import { PhotoCard } from 'components/PhotoCard';
-import { gql, useLazyQuery } from '@apollo/client';
-import { useEffect } from 'react';
-
-const withPhotos = gql`
-  query getPhotos {
-    photos {
-      id
-      likes
-      liked
-      src
-      categoryId
-      userId
-    }
-  }
-`;
+import { useQueryPhotosData } from './hooks/useQueryPhotosData';
 
 export function ListOfPhotoCards() {
-  const [loadGreeting, { called, loading, data }] = useLazyQuery(withPhotos, {
-    variables: { language: 'english' },
-  });
+  const { loading, photos } = useQueryPhotosData({});
 
-  useEffect(() => {
-    loadGreeting();
-  }, [loadGreeting]);
-
-  if (called && loading) return <p>Loading ...</p>;
+  if (loading) return <p>Loading ...</p>;
 
   return (
     <ul>
-      {data?.photos.map((photo: any) => (
+      {photos.map((photo: any) => (
         <PhotoCard key={photo?.id} {...photo} />
       ))}
     </ul>
