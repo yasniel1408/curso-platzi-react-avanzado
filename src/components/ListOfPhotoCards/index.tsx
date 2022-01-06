@@ -1,16 +1,16 @@
 import { PhotoCard } from 'components/PhotoCard';
-import { useQueryPhotosData } from './hooks/useQueryPhotosData';
+import { FC } from 'react';
 
-export function ListOfPhotoCards() {
-  const { loading, photos } = useQueryPhotosData({});
+type AppProps = {
+  photos: [];
+};
 
-  if (loading) return <p>Loading ...</p>;
-
+export const ListOfPhotoCards: FC<AppProps> = ({ photos }: AppProps) => {
   return (
     <ul>
-      {photos.map((photo: any) => (
+      {photos?.map((photo: any) => (
         <PhotoCard key={photo?.id} {...photo} />
       ))}
     </ul>
   );
-}
+};
