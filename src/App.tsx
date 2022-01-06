@@ -3,7 +3,7 @@ import { GlobalStyle } from 'styles/GlobalStyles';
 import { ListOfCategory } from 'components/ListOfCategory';
 import { Logo } from 'components/Logo';
 import { ListOfPhotoCardsContainer } from 'containers/ListOfPhotoCardsContainer';
-import { PhotoCardWithQuery } from 'containers/PhotoCardWithQuery';
+import { PhotoCardWithQuery } from 'containers/PhotoCardWithQueryContainer';
 
 export const App: FC = () => {
   const urlParams = new URLSearchParams(window.location.search);

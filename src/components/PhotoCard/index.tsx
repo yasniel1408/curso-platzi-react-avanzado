@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-expressions */
+import { FavButton } from 'components/FavButton';
+import { ToggleLikeMutationContainer } from 'containers/ToggleLikeMutationContainer';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { FC, useEffect, useState } from 'react';
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { useInView } from 'react-intersection-observer';
-import { ImgWrapper, Img, Button, Article } from './styled';
+import { ImgWrapper, Img, Article } from './styled';
 
 const DEFAULT_IMAGE =
   // eslint-disable-next-line max-len
@@ -33,35 +35,35 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
     setLike(data);
   }, [data]);
 
-  const Icon = like ? MdFavorite : MdFavoriteBorder;
-
-  const handleLike = () => {
-    const value: boolean = !like;
-    setLike(value);
-    savePersistData({ data: value });
-  };
-
   return (
     <Article ref={ref}>
       {inView && (
-        <>
-          <a href={`/?detail=${id}`}>
-            <ImgWrapper>
-              <Img src={src} />
-            </ImgWrapper>
-          </a>
-
-          <Button onClick={() => handleLike()}>
-            {error}
-            {loading ? (
-              '...'
-            ) : (
-              <>
-                <Icon size="32px" /> {likes} likes!
-              </>
-            )}
-          </Button>
-        </>
+        <a href={`/?detail=${id}`}>
+          <ImgWrapper>
+            <Img src={src} />
+          </ImgWrapper>
+        </a>
+      )}
+      {error}
+      {loading ? (
+        '...'
+      ) : (
+        <ToggleLikeMutationContainer>
+          {(toggleLike: Function) => {
+            const handleLike = () => {
+              !like &&
+                toggleLike({
+                  variables: {
+                    input: { id },
+                  },
+                });
+              const value: boolean = !like;
+              setLike(value);
+              savePersistData({ data: value });
+            };
+            return <FavButton like={like} likes={likes} handleLike={handleLike} />;
+          }}
+        </ToggleLikeMutationContainer>
       )}
     </Article>
   );
