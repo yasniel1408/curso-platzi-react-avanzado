@@ -6,7 +6,7 @@ type AppProps = {
   id?: any;
 };
 
-export const PhotoCardWithQuery: FC<AppProps> = ({ id }: AppProps) => {
+export const PhotoCardWithQuery: FC<AppProps> = ({ id }) => {
   const { loading, error, data } = useQueryPhotoData({ id });
 
   if (loading) return <p>Loading ...</p>;

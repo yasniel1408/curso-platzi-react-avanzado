@@ -2,7 +2,7 @@ import { PhotoCard } from 'components/PhotoCard';
 import { FC } from 'react';
 
 type AppProps = {
-  data?: object;
+  data?: any;
 };
 
 export const PhotoCardDetail: FC<AppProps> = ({ data }: AppProps) => {
