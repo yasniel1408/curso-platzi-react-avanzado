@@ -56,7 +56,7 @@
             2,
             {
                 "min": 3,
-                "exceptions": ["id", "e", "i", "me"]
+                "exceptions": ["id", "e", "i", "me", "db"]
             }
         ],
         "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }]
