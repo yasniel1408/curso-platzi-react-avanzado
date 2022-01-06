@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-expressions */
 import { FavButton } from 'components/FavButton';
-import { ToggleLikeMutationContainer } from 'containers/ToggleLikeMutationContainer';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { FC, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -11,7 +9,7 @@ const DEFAULT_IMAGE =
   'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
 
 type AppProps = {
-  id?: string;
+  id?: number;
   likes?: number;
   src?: string;
 };
@@ -35,6 +33,12 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
     setLike(data);
   }, [data]);
 
+  const handleLike = () => {
+    const value: boolean = !like;
+    setLike(value);
+    savePersistData({ data: value });
+  };
+
   return (
     <Article ref={ref}>
       {inView && (
@@ -45,26 +49,7 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
         </a>
       )}
       {error}
-      {loading ? (
-        '...'
-      ) : (
-        <ToggleLikeMutationContainer>
-          {(toggleLike: Function) => {
-            const handleLike = () => {
-              !like &&
-                toggleLike({
-                  variables: {
-                    input: { id },
-                  },
-                });
-              const value: boolean = !like;
-              setLike(value);
-              savePersistData({ data: value });
-            };
-            return <FavButton like={like} likes={likes} handleLike={handleLike} />;
-          }}
-        </ToggleLikeMutationContainer>
-      )}
+      {loading ? '...' : <FavButton id={id} like={like} likes={likes} handleLike={handleLike} />}
     </Article>
   );
 };
