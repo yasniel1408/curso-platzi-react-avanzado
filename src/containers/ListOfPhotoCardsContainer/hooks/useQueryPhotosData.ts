@@ -1,5 +1,4 @@
-import { gql, useLazyQuery } from '@apollo/client';
-import { useEffect } from 'react';
+import { gql, useQuery } from '@apollo/client';
 
 export const GET_PHOTOS = gql`
   query getPhotos($categoryId: ID) {
@@ -15,18 +14,13 @@ export const GET_PHOTOS = gql`
 `;
 
 export const useQueryPhotosData = ({ categoryId }: { categoryId: number }) => {
-  const [loadGreeting, { called, loading, data }] = useLazyQuery(GET_PHOTOS, {
+  const { loading, error, data } = useQuery(GET_PHOTOS, {
     variables: { categoryId },
   });
 
-  useEffect(() => {
-    loadGreeting();
-  }, [loadGreeting]);
-
   return {
-    loadGreeting,
     loading,
-    called,
+    error,
     data,
   };
 };
