@@ -1,20 +1,15 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Category } from '../Category';
-import { useCategoriesData } from './hooks/useCategoriesData';
-import { useFixedCategories } from './hooks/useFixedCategories';
 import { Item, List } from './styled';
 
-export const ListOfCategory: FC = () => {
-  const { getCategories, categories, loading, error } = useCategoriesData();
-  const { showFixed } = useFixedCategories();
+type AppProps = {
+  categories: Array<any>;
+  showFixed: boolean;
+};
 
-  useEffect(() => {
-    getCategories();
-  }, [getCategories]);
-
+export const ListOfCategory: FC<AppProps> = ({ categories, showFixed }: AppProps) => {
   const renderList = (fixed: boolean = false) => (
     <List fixed={fixed}>
-      {error}
       {categories.map((category: any) => (
         <Item key={category.id}>
           <Category {...category} />
@@ -22,8 +17,6 @@ export const ListOfCategory: FC = () => {
       ))}
     </List>
   );
-
-  if (loading) return <>Loading...</>;
 
   return (
     <>

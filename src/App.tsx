@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { GlobalStyle } from 'styles/GlobalStyles';
-import { ListOfCategory } from 'components/ListOfCategory';
 import { Logo } from 'components/Logo';
+import { ListOfCategoryContainer } from 'containers/ListOfCategoryContainer';
 import { ListOfPhotoCardsContainer } from 'containers/ListOfPhotoCardsContainer';
 import { PhotoCardWithQuery } from 'containers/PhotoCardWithQueryContainer';
+import { FC } from 'react';
+import { GlobalStyle } from 'styles/GlobalStyles';
 
 export const App: FC = () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -17,7 +17,7 @@ export const App: FC = () => {
         <PhotoCardWithQuery id={categoryId} />
       ) : (
         <>
-          <ListOfCategory />
+          <ListOfCategoryContainer />
           <ListOfPhotoCardsContainer />
         </>
       )}
