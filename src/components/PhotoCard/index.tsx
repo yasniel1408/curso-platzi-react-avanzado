@@ -1,4 +1,4 @@
-import { FavButton } from 'components/FavButton';
+import { ToggleLikeMutationContainer } from 'containers/ToggleLikeMutationContainer';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { FC, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -23,14 +23,14 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
     key: `like-${id}`,
   });
 
-  const [like, setLike] = useState<Boolean | null>(data);
+  const [like, setLike] = useState(false);
 
   useEffect(() => {
     getPersistData();
   }, [getPersistData]);
 
   useEffect(() => {
-    setLike(data);
+    data && setLike(data);
   }, [data]);
 
   const handleLike = () => {
@@ -49,7 +49,11 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
         </a>
       )}
       {error}
-      {loading ? '...' : <FavButton id={id} like={like} likes={likes} handleLike={handleLike} />}
+      {loading ? (
+        '...'
+      ) : (
+        <ToggleLikeMutationContainer id={id} like={like} likes={likes} handleLike={handleLike} />
+      )}
     </Article>
   );
 };
