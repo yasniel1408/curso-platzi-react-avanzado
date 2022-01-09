@@ -1,3 +1,4 @@
+import { Link } from '@reach/router';
 import { ToggleLikeMutationContainer } from 'containers/ToggleLikeMutationContainer';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { FC, useEffect, useState } from 'react';
@@ -19,7 +20,7 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
     fallbackInView: true,
   });
 
-  const { getPersistData, savePersistData, data, loading, error } = useLocalStorage({
+  const { getPersistData, savePersistData, data, error } = useLocalStorage({
     key: `like-${id}`,
   });
 
@@ -42,18 +43,14 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: 
   return (
     <Article ref={ref}>
       {inView && (
-        <a href={`/?detail=${id}`}>
+        <Link to={`/detail/${id}`}>
           <ImgWrapper>
             <Img src={src} />
           </ImgWrapper>
-        </a>
+        </Link>
       )}
       {error}
-      {loading ? (
-        '...'
-      ) : (
-        <ToggleLikeMutationContainer id={id} like={like} likes={likes} handleLike={handleLike} />
-      )}
+      <ToggleLikeMutationContainer id={id} like={like} likes={likes} handleLike={handleLike} />
     </Article>
   );
 };

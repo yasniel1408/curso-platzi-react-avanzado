@@ -4,6 +4,7 @@ import { Home } from 'pages/Home';
 import { FC } from 'react';
 import { GlobalStyle } from 'styles/GlobalStyles';
 import { Router } from '@reach/router';
+import { Details } from 'pages/Details';
 
 export const App: FC = () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -19,6 +20,7 @@ export const App: FC = () => {
         <Router>
           <Home path="/" />
           <Home path="/pets/:categoryId" />
+          <Details path="/detail/:categoryId" />
         </Router>
       )}
     </div>
