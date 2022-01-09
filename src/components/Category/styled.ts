@@ -1,7 +1,8 @@
+import { Link } from '@reach/router';
 import styled from 'styled-components';
 import { fadeIn } from 'styles/animation';
 
-export const Anchor = styled.a`
+export const Anchor = styled(Link)`
   display: flex;
   flex-direction: column;
   text-align: center;

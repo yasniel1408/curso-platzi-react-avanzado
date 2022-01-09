@@ -1,9 +1,9 @@
 import { Logo } from 'components/Logo';
-import { ListOfCategoryContainer } from 'containers/ListOfCategoryContainer';
-import { ListOfPhotoCardsContainer } from 'containers/ListOfPhotoCardsContainer';
 import { PhotoCardWithQuery } from 'containers/PhotoCardWithQueryContainer';
+import { Home } from 'pages/Home';
 import { FC } from 'react';
 import { GlobalStyle } from 'styles/GlobalStyles';
+import { Router } from '@reach/router';
 
 export const App: FC = () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -16,10 +16,10 @@ export const App: FC = () => {
       {categoryId ? (
         <PhotoCardWithQuery id={categoryId} />
       ) : (
-        <>
-          <ListOfCategoryContainer />
-          <ListOfPhotoCardsContainer />
-        </>
+        <Router>
+          <Home path="/" />
+          <Home path="/pets/:categoryId" />
+        </Router>
       )}
     </div>
   );

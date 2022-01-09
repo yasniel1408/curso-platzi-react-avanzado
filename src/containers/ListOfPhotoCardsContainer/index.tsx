@@ -1,12 +1,15 @@
 import { ListOfPhotoCards } from 'components/ListOfPhotoCards';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useQueryPhotosData } from './hooks/useQueryPhotosData';
 
-export const ListOfPhotoCardsContainer: FC = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [categoryId, setCategoryId] = useState(NaN);
+type AppProps = {
+  categoryId?: number;
+};
 
-  const { loading, error, data } = useQueryPhotosData({ categoryId });
+export const ListOfPhotoCardsContainer: FC<AppProps> = ({ categoryId }: AppProps) => {
+  const { loading, error, data } = useQueryPhotosData({
+    categoryId: categoryId || NaN,
+  });
 
   if (loading) return <p>Loading ...</p>;
   if (error) return <p>Error! {error.message}</p>;
