@@ -1,5 +1,5 @@
 import { RouteComponentProps } from '@reach/router';
-import { LoginForm } from 'components/LoginForm';
+import { UserForm } from 'components/UserForm';
 import { FC } from 'react';
 
 export const Login: FC<RouteComponentProps> = () => {
@@ -7,5 +7,10 @@ export const Login: FC<RouteComponentProps> = () => {
     e.preventDefault();
     console.log(e);
   };
-  return <LoginForm onSubmit={handleSubmit} />;
+  return (
+    <>
+      <UserForm onSubmit={handleSubmit} title="Login:" />
+      <UserForm onSubmit={handleSubmit} title="Register:" />
+    </>
+  );
 };
