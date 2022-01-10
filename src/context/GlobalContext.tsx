@@ -1,10 +1,11 @@
 import { createContext } from 'react';
 
-interface AppContextInterface {
-  isAuth: boolean;
-  activateAuth: Function;
-}
+type AppContextInterface = {
+  isAuth?: any;
+  activateAuth?: Function;
+  deactivateAuth?: Function;
+};
 
-const GlobalContext = createContext<AppContextInterface | null>(null);
+const GlobalContext: any = createContext<AppContextInterface | null>(null);
 
 export { GlobalContext };

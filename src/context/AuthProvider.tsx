@@ -10,6 +10,9 @@ const AuthProvider: FC<any> = ({ children }) => {
       activateAuth: () => {
         setIsAuth(true);
       },
+      deactivateAuth: () => {
+        setIsAuth(false);
+      },
     };
   }, [isAuth]);
 

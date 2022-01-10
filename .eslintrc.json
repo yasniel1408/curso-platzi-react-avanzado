@@ -25,6 +25,7 @@
         "prettier"
     ],
     "rules": {
+        "no-unused-vars": ["warn"],
         "no-unused-expressions": ["off"],
         "react/require-default-props": ["off"],
         "import/prefer-default-export": ["off"],
@@ -43,7 +44,7 @@
         "react/jsx-closing-bracket-location": "off",
         "import/no-cycle": "off",
         "no-use-before-define": ["off"],
-        "no-console": ["error"],
+        "no-console": ["warn"],
         "react/prop-types": ["error"],
         "import/no-absolute-path": ["off"],
         "max-len": ["error", { "code": 100 }],
