@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
