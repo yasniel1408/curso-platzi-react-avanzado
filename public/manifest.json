@@ -4,19 +4,19 @@
   "description": "Con Petgram puedes encontrar fotos de animales domésticos",
   "icons": [
     {
-      "src": "petgram.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "maskable_icon_x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
     },
     {
-      "src": "petgram.png",
+      "src": "maskable_icon_x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "maskable_icon_x192.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "petgram.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": "https://petgram-yasniel1408.vercel.app",

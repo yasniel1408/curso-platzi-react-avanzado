@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\yasni\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @type/react-apollo -D
+  C:\Program Files\nodejs\node.exe C:\Users\yasni\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/react-workbox
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\yasni\AppData\Local\Microsoft\WindowsApps;C:\Users\yasni\AppData\Roaming\npm;C:\Users\yasni\AppData\Local\Programs\Microsoft VS Code\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@type%2freact-apollo: Not found
+  Error: https://registry.yarnpkg.com/@types%2freact-workbox: Not found
       at Request.params.callback [as _callback] (C:\Users\yasni\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
       at Request.self.callback (C:\Users\yasni\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
       at Request.emit (events.js:400:28)
@@ -37,7 +37,8 @@ npm manifest:
       "dev": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
-      "eject": "react-scripts eject"
+      "eject": "react-scripts eject",
+      "prod": "npx serve -s build"
     },
     "repository": {
       "type": "git",
@@ -51,6 +52,7 @@ npm manifest:
     "dependencies": {
       "@apollo/client": "^3.5.6",
       "@apollo/react-hooks": "^4.0.0",
+      "@reach/router": "^1.3.4",
       "@testing-library/jest-dom": "^5.11.4",
       "@testing-library/react": "^11.1.0",
       "@testing-library/user-event": "^12.1.10",
@@ -59,19 +61,23 @@ npm manifest:
       "@types/node": "^12.0.0",
       "@types/react": "^17.0.37",
       "@types/react-dom": "^17.0.0",
+      "@types/react-helmet": "^6.1.5",
       "apollo-boost": "^0.4.9",
       "graphql": "^16.2.0",
       "react": "^17.0.2",
       "react-apollo": "^3.1.5",
       "react-dom": "^17.0.2",
+      "react-helmet": "^6.1.0",
       "react-icons": "^4.3.1",
       "react-intersection-observer": "^8.33.1",
       "react-scripts": "^5.0.0",
+      "react-workbox": "^1.0.0-beta-5",
       "styled-components": "^5.3.3",
       "typescript": "^4.5.4",
       "web-vitals": "^1.0.1"
     },
     "devDependencies": {
+      "@types/reach__router": "^1.3.10",
       "@types/styled-components": "^5.1.15",
       "@typescript-eslint/eslint-plugin": "^5.9.0",
       "@typescript-eslint/parser": "^5.9.0",
@@ -1565,6 +1571,16 @@ Lockfile:
       schema-utils "^3.0.0"
       source-map "^0.7.3"
   
+  "@reach/router@^1.3.4":
+    version "1.3.4"
+    resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
+    integrity sha512-+mtn9wjlB9NN2CNnnC/BRYtwdKBfSyyasPYraNAyvaV1occr/5NnB4CVzjEZipNHwYebQwcndGUmpFzxAUoqSA==
+    dependencies:
+      create-react-context "0.3.0"
+      invariant "^2.2.3"
+      prop-types "^15.6.1"
+      react-lifecycles-compat "^3.0.4"
+  
   "@rollup/plugin-babel@^5.2.0":
     version "5.3.0"
     resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"
@@ -2038,10 +2054,24 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.4.tgz#cd667bcfdd025213aafb7ca5915a932590acdcdc"
     integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
   
+  "@types/reach__router@^1.3.10":
+    version "1.3.10"
+    resolved "https://registry.yarnpkg.com/@types/reach__router/-/reach__router-1.3.10.tgz#141d500213a452d9d9d71d5ad96c4104094f55a3"
+    integrity sha512-iHAFGaVOrWi00/q7oBybggGsz5TOmwOW4M1H9sT7i9lly4qFC8XOgsdf6jUsoaOz2sknFHALEtZqCoDbokdJ2Q==
+    dependencies:
+      "@types/react" "*"
+  
   "@types/react-dom@^17.0.0":
     version "17.0.11"
     resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.11.tgz#e1eadc3c5e86bdb5f7684e00274ae228e7bcc466"
     integrity sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==
+    dependencies:
+      "@types/react" "*"
+  
+  "@types/react-helmet@^6.1.5":
+    version "6.1.5"
+    resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.5.tgz#35f89a6b1646ee2bc342a33a9a6c8777933f9083"
+    integrity sha512-/ICuy7OHZxR0YCAZLNg9r7I9aijWUWvxaPR6uTuyxe8tAj5RL4Sw1+R6NhXUtOsarkGYPmaHdBDvuXh2DIN/uA==
     dependencies:
       "@types/react" "*"
   
@@ -3450,6 +3480,14 @@ Lockfile:
       parse-json "^5.0.0"
       path-type "^4.0.0"
       yaml "^1.10.0"
+  
+  create-react-context@0.3.0:
+    version "0.3.0"
+    resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.3.0.tgz#546dede9dc422def0d3fc2fe03afe0bc0f4f7d8c"
+    integrity sha512-dNldIoSuNSvlTJ7slIKC/ZFGKexBMBrrcc+TTe1NdmROnaASuLPvqpwj9v4XS4uXZ8+YPu0sNmShX2rXI5LNsw==
+    dependencies:
+      gud "^1.0.0"
+      warning "^4.0.3"
   
   cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     version "7.0.3"
@@ -4969,6 +5007,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.2.0.tgz#de3150e80f1fc009590b92a9d16ab1b46e12b656"
     integrity sha512-MuQd7XXrdOcmfwuLwC2jNvx0n3rxIuNYOxUtiee5XOmfrWo613ar2U8pE7aHAKh8VwfpifubpD9IP+EdEAEOsA==
   
+  gud@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
+    integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
+  
   gzip-size@^6.0.0:
     version "6.0.0"
     resolved "https://registry.yarnpkg.com/gzip-size/-/gzip-size-6.0.0.tgz#065367fd50c239c0671cbcbad5be3e2eeb10e462"
@@ -5274,6 +5317,13 @@ Lockfile:
       get-intrinsic "^1.1.0"
       has "^1.0.3"
       side-channel "^1.0.4"
+  
+  invariant@^2.2.3:
+    version "2.2.4"
+    resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
+    integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
+    dependencies:
+      loose-envify "^1.0.0"
   
   ip@^1.1.0:
     version "1.1.5"
@@ -6261,7 +6311,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
     integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
   
-  loose-envify@^1.1.0, loose-envify@^1.4.0:
+  loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
     version "1.4.0"
     resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
     integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -7488,6 +7538,15 @@ Lockfile:
       kleur "^3.0.3"
       sisteransi "^1.0.5"
   
+  prop-types@^15.6.1:
+    version "15.8.1"
+    resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+    integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+    dependencies:
+      loose-envify "^1.4.0"
+      object-assign "^4.1.1"
+      react-is "^16.13.1"
+  
   prop-types@^15.7.2:
     version "15.8.0"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.0.tgz#d237e624c45a9846e469f5f31117f970017ff588"
@@ -7631,6 +7690,21 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.10.tgz#0fe26db4fa85d9dbb8624729580e90e7159a59a6"
     integrity sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==
   
+  react-fast-compare@^3.1.1:
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+    integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+  
+  react-helmet@^6.1.0:
+    version "6.1.0"
+    resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
+    integrity sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==
+    dependencies:
+      object-assign "^4.1.1"
+      prop-types "^15.7.2"
+      react-fast-compare "^3.1.1"
+      react-side-effect "^2.1.0"
+  
   react-icons@^4.3.1:
     version "4.3.1"
     resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
@@ -7650,6 +7724,11 @@ Lockfile:
     version "17.0.2"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
     integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+  
+  react-lifecycles-compat@^3.0.4:
+    version "3.0.4"
+    resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+    integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
   
   react-refresh@^0.11.0:
     version "0.11.0"
@@ -7711,7 +7790,21 @@ Lockfile:
     optionalDependencies:
       fsevents "^2.3.2"
   
-  react@^17.0.2:
+  react-side-effect@^2.1.0:
+    version "2.1.1"
+    resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.1.tgz#66c5701c3e7560ab4822a4ee2742dee215d72eb3"
+    integrity sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==
+  
+  react-workbox@^1.0.0-beta-5:
+    version "1.0.0-beta-5"
+    resolved "https://registry.yarnpkg.com/react-workbox/-/react-workbox-1.0.0-beta-5.tgz#2fd5d05bb7e9a092f2a23be9a766e277b7add747"
+    integrity sha512-4jad9md4gLaWwFzUYLa6fo1TEe1Zp+JIkOJmABVyfnyWke2oh4HaJYj5bCOAIdbn307XHFGkfcmOTYQbAyeU6g==
+    dependencies:
+      react "^17.0.1"
+      tslib "^2.1.0"
+      workbox-window "^6.0.2"
+  
+  react@^17.0.1, react@^17.0.2:
     version "17.0.2"
     resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
     integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -8975,6 +9068,13 @@ Lockfile:
     dependencies:
       makeerror "1.0.12"
   
+  warning@^4.0.3:
+    version "4.0.3"
+    resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
+    integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
+    dependencies:
+      loose-envify "^1.0.0"
+  
   watchpack@^2.3.1:
     version "2.3.1"
     resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-2.3.1.tgz#4200d9447b401156eeca7767ee610f8809bc9d25"
@@ -9357,7 +9457,7 @@ Lockfile:
       webpack-sources "^1.4.3"
       workbox-build "6.4.2"
   
-  workbox-window@6.4.2:
+  workbox-window@6.4.2, workbox-window@^6.0.2:
     version "6.4.2"
     resolved "https://registry.yarnpkg.com/workbox-window/-/workbox-window-6.4.2.tgz#5319a3e343fa1e4bd15a1f53a07b58999d064c8a"
     integrity sha512-KVyRKmrJg7iB+uym/B/CnEUEFG9CvnTU1Bq5xpXHbtgD9l+ShDekSl1wYpqw/O0JfeeQVOFb8CiNfvnwWwqnWQ==

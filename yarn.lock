@@ -7682,7 +7682,16 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.1.tgz#66c5701c3e7560ab4822a4ee2742dee215d72eb3"
   integrity sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==
 
-react@^17.0.2:
+react-workbox@^1.0.0-beta-5:
+  version "1.0.0-beta-5"
+  resolved "https://registry.yarnpkg.com/react-workbox/-/react-workbox-1.0.0-beta-5.tgz#2fd5d05bb7e9a092f2a23be9a766e277b7add747"
+  integrity sha512-4jad9md4gLaWwFzUYLa6fo1TEe1Zp+JIkOJmABVyfnyWke2oh4HaJYj5bCOAIdbn307XHFGkfcmOTYQbAyeU6g==
+  dependencies:
+    react "^17.0.1"
+    tslib "^2.1.0"
+    workbox-window "^6.0.2"
+
+react@^17.0.1, react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -9335,7 +9344,7 @@ workbox-webpack-plugin@^6.4.1:
     webpack-sources "^1.4.3"
     workbox-build "6.4.2"
 
-workbox-window@6.4.2:
+workbox-window@6.4.2, workbox-window@^6.0.2:
   version "6.4.2"
   resolved "https://registry.yarnpkg.com/workbox-window/-/workbox-window-6.4.2.tgz#5319a3e343fa1e4bd15a1f53a07b58999d064c8a"
   integrity sha512-KVyRKmrJg7iB+uym/B/CnEUEFG9CvnTU1Bq5xpXHbtgD9l+ShDekSl1wYpqw/O0JfeeQVOFb8CiNfvnwWwqnWQ==

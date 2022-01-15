@@ -5,6 +5,7 @@ import { GlobalStyle } from 'styles/GlobalStyles';
 import { Redirect, Router } from '@reach/router';
 import { NavBar } from 'components/NavBar';
 import { useAuth } from 'context/hooks/useAuth';
+// import { UpdateAvailable, UpdateActivatedReload } from 'react-workbox';
 
 const Favs = lazy(() => import('pages/Favs'));
 const Details = lazy(() => import('pages/Details'));
@@ -14,6 +15,15 @@ const NotFound = lazy(() => import('pages/NotFound'));
 
 export const App: FC = () => {
   const value: any = useAuth();
+
+  const onUpdateClick = async () => {
+    if (navigator.serviceWorker) {
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (registration?.waiting) {
+        registration.waiting.postMessage('skipWaiting');
+      }
+    }
+  };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -32,6 +42,12 @@ export const App: FC = () => {
         <User path="/user" />
       </Router>
       <NavBar />
+      {/* <UpdateAvailable>
+        <button onClick={() => onUpdateClick} type="button">
+          Update Available - Click to Install
+        </button>
+      </UpdateAvailable>
+      <UpdateActivatedReload /> */}
     </Suspense>
   );
 };
