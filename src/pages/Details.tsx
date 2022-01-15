@@ -1,4 +1,5 @@
 import { RouteComponentProps } from '@reach/router';
+import { Layout } from 'components/Layout';
 import { PhotoCardWithQuery } from 'containers/PhotoCardWithQueryContainer';
 import { FC } from 'react';
 
@@ -7,5 +8,7 @@ type AppProps = {
 } & RouteComponentProps;
 
 export const Details: FC<AppProps> = ({ categoryId }: AppProps) => (
-  <PhotoCardWithQuery id={categoryId} />
+  <Layout title={`Fotografía ${categoryId}`}>
+    <PhotoCardWithQuery id={categoryId} />
+  </Layout>
 );
