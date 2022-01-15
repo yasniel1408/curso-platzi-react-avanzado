@@ -1,8 +1,7 @@
 import { Link, navigate } from '@reach/router';
 import { ToggleLikeMutationContainer } from 'containers/ToggleLikeMutationContainer';
 import { useAuth } from 'context/hooks/useAuth';
-import { useLocalStorage } from 'hooks/useLocalStorage';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ImgWrapper, Img, Article } from './styled';
 
@@ -14,36 +13,15 @@ type AppProps = {
   id?: number;
   likes?: number;
   src?: string;
+  liked?: boolean;
 };
 
-export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
+export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE, liked }) => {
   const { ref, inView } = useInView({
     fallbackInView: true,
   });
 
-  const { getPersistData, savePersistData, data, error } = useLocalStorage({
-    key: `like-${id}`,
-  });
-
-  const [like, setLike] = useState(false);
-
-  useEffect(() => {
-    getPersistData();
-  }, [getPersistData]);
-
-  useEffect(() => {
-    data && setLike(data);
-  }, [data]);
-
   const auth: any = useAuth();
-
-  const handleLike = () => {
-    if (auth.isAuth) {
-      const value: boolean = !like;
-      setLike(value);
-      savePersistData({ data: value });
-    }
-  };
 
   return (
     <Article ref={ref}>
@@ -54,12 +32,11 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }) 
           </ImgWrapper>
         </Link>
       )}
-      {error}
       <ToggleLikeMutationContainer
         id={id}
-        like={like}
+        liked={liked}
         likes={likes}
-        handleLike={auth.isAuth ? handleLike : () => navigate('/user')}
+        handleLike={!auth.isAuth ? () => navigate('/user') : () => {}}
       />
     </Article>
   );

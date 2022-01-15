@@ -14,7 +14,7 @@ export const RegisterContainer: FC = () => {
   const value: any = useAuth();
 
   useEffect(() => {
-    if (data) value.activateAuth({ token: data?.login });
+    if (data) value.activateAuth({ token: data?.signup });
   }, [data, value]);
 
   const handleSubmit = async ({ email, password }: { email: string; password: string }) => {

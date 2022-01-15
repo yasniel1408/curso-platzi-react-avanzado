@@ -13,13 +13,13 @@ const LIKE_PHOTO = gql`
 `;
 
 type AppProps = {
-  like: boolean;
   likes?: number;
   id?: number;
   handleLike?: any;
+  liked?: boolean;
 };
 
-export const ToggleLikeMutationContainer: FC<AppProps> = ({ id, like, likes, handleLike }) => {
+export const ToggleLikeMutationContainer: FC<AppProps> = ({ id, likes, handleLike, liked }) => {
   const [likePhoto, { error }] = useMutation(LIKE_PHOTO, {
     variables: { input: { id } },
   });
@@ -31,5 +31,5 @@ export const ToggleLikeMutationContainer: FC<AppProps> = ({ id, like, likes, han
 
   if (error) return <p>Error! {JSON.stringify(error?.networkError)}</p>;
 
-  return <FavButton like={like} likes={likes} handleClick={handleClick} />;
+  return <FavButton likes={likes} handleClick={handleClick} liked={liked} />;
 };
