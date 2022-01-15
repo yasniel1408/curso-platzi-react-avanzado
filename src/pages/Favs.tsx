@@ -1,4 +1,5 @@
 import { RouteComponentProps } from '@reach/router';
+import { ListOfFavoritesContainer } from 'containers/ListOfFavoritesContainer';
 import { FC } from 'react';
 
-export const Favs: FC<RouteComponentProps> = () => <h1>User</h1>;
+export const Favs: FC<RouteComponentProps> = () => <ListOfFavoritesContainer />;

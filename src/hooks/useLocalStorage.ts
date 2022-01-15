@@ -29,5 +29,16 @@ export const useLocalStorage = ({ key }: { key: string }) => {
     }
   }, [key]);
 
-  return { getPersistData, savePersistData, data, loading, error };
+  const getRemoveData = useCallback(async () => {
+    try {
+      setLoading(true);
+      await localStorage.removeItem(key);
+      setData(null);
+      setLoading(false);
+    } catch (err: any) {
+      setError(err);
+    }
+  }, [key]);
+
+  return { getPersistData, savePersistData, getRemoveData, data, loading, error };
 };

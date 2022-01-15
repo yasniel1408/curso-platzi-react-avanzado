@@ -3,6 +3,7 @@ import { FC } from 'react';
 
 type AppProps = {
   photos: [];
+  favs?: boolean;
 };
 
 export const ListOfPhotoCards: FC<AppProps> = ({ photos }) => {

@@ -3,7 +3,7 @@ import { useLocalStorage } from 'hooks/useLocalStorage';
 import { GlobalContext } from './GlobalContext';
 
 const AuthProvider: FC<any> = ({ children }) => {
-  const { getPersistData, savePersistData, data } = useLocalStorage({
+  const { getPersistData, savePersistData, getRemoveData, data } = useLocalStorage({
     key: 'USER_TOKEN',
   });
   const [isAuth, setIsAuth] = useState(false);
@@ -23,11 +23,12 @@ const AuthProvider: FC<any> = ({ children }) => {
         savePersistData({ data: token });
         setIsAuth(true);
       },
-      deactivateAuth: () => {
+      removeAuth: () => {
+        getRemoveData();
         setIsAuth(false);
       },
     };
-  }, [isAuth, savePersistData]);
+  }, [getRemoveData, isAuth, savePersistData]);
 
   return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;
 };

@@ -1,6 +1,7 @@
+import { SubmitButton } from 'components/SubmitButton';
 import { useInputValue } from 'hooks/useInputValue';
 import { FC } from 'react';
-import { Button, Error, Form, Input, Title } from './styled';
+import { Error, Form, Input, Title } from './styled';
 
 type AppProps = {
   onSubmit: any;
@@ -27,9 +28,7 @@ export const UserForm: FC<AppProps> = ({ onSubmit, title, loading, error }) => {
       <Form onSubmit={handleSubmit}>
         <Input disabled={loading} type="email" placeholder="Email" {...email} />
         <Input disabled={loading} type="password" placeholder="Password" {...password} />
-        <Button disabled={loading} type="submit">
-          {loading ? 'Submitting...' : title}
-        </Button>
+        <SubmitButton disabled={loading}>{loading ? 'Submitting...' : title}</SubmitButton>
         {error && <Error>Submission error! {error.message}</Error>}
       </Form>
     </>
