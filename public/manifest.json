@@ -1,6 +1,7 @@
 {
-  "short_name": "Petgram",
-  "name": "Petgram",
+  "short_name": "Petgram 🐶",
+  "name": "Petgram 🐶 - Tu app de ftoos de mascotas",
+  "description": "Con Petgram puedes encontrar fotos de animales domésticos",
   "icons": [
     {
       "src": "petgram.png",
