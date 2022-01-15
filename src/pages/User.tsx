@@ -3,7 +3,7 @@ import { SubmitButton } from 'components/SubmitButton';
 import { useAuth } from 'context/hooks/useAuth';
 import { FC } from 'react';
 
-export const User: FC<RouteComponentProps> = () => {
+const User: FC<RouteComponentProps> = () => {
   const value: any = useAuth();
   return (
     <div style={{ padding: '1rem' }}>
@@ -12,3 +12,5 @@ export const User: FC<RouteComponentProps> = () => {
     </div>
   );
 };
+
+export default User;

@@ -3,7 +3,7 @@ import { LoginContainer } from 'containers/LoginContainer';
 import { RegisterContainer } from 'containers/RegisterContainer';
 import { FC } from 'react';
 
-export const UserAuthentication: FC<RouteComponentProps> = () => {
+const UserAuthentication: FC<RouteComponentProps> = () => {
   return (
     <div style={{ padding: '1rem' }}>
       <RegisterContainer />
@@ -11,3 +11,5 @@ export const UserAuthentication: FC<RouteComponentProps> = () => {
     </div>
   );
 };
+
+export default UserAuthentication;

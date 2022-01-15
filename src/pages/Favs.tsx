@@ -3,8 +3,10 @@ import { Layout } from 'components/Layout';
 import { ListOfFavoritesContainer } from 'containers/ListOfFavoritesContainer';
 import { FC } from 'react';
 
-export const Favs: FC<RouteComponentProps> = () => (
+const Favs: FC<RouteComponentProps> = () => (
   <Layout title="Tus favoritos" subtitle="Aquí puedes encontrar tus favoritos">
     <ListOfFavoritesContainer />
   </Layout>
 );
+
+export default Favs;

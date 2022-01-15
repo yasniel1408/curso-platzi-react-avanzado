@@ -7,8 +7,9 @@ type AppProps = {
   categoryId?: number;
 } & RouteComponentProps;
 
-export const Details: FC<AppProps> = ({ categoryId }: AppProps) => (
+const Details: FC<AppProps> = ({ categoryId }: AppProps) => (
   <Layout title={`Fotografía ${categoryId}`}>
     <PhotoCardWithQuery id={categoryId} />
   </Layout>
 );
+export default Details;

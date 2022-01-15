@@ -1,21 +1,22 @@
 import { Logo } from 'components/Logo';
 import { Home } from 'pages/Home';
-import { FC } from 'react';
+import { FC, lazy, Suspense } from 'react';
 import { GlobalStyle } from 'styles/GlobalStyles';
 import { Redirect, Router } from '@reach/router';
-import { Details } from 'pages/Details';
 import { NavBar } from 'components/NavBar';
-import { Favs } from 'pages/Favs';
-import { User } from 'pages/User';
-import { UserAuthentication } from 'pages/UserAuthentication';
 import { useAuth } from 'context/hooks/useAuth';
-import { NotFound } from 'pages/NotFound';
+
+const Favs = lazy(() => import('pages/Favs'));
+const Details = lazy(() => import('pages/Details'));
+const User = lazy(() => import('pages/User'));
+const UserAuthentication = lazy(() => import('pages/UserAuthentication'));
+const NotFound = lazy(() => import('pages/NotFound'));
 
 export const App: FC = () => {
   const value: any = useAuth();
 
   return (
-    <div>
+    <Suspense fallback={<div>Loading...</div>}>
       <GlobalStyle />
       <Logo />
       <Router>
@@ -30,8 +31,7 @@ export const App: FC = () => {
         <Favs path="/favs" />
         <User path="/user" />
       </Router>
-
       <NavBar />
-    </div>
+    </Suspense>
   );
 };
