@@ -15,7 +15,7 @@ type AppProps = {
   src?: string;
 };
 
-export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }: AppProps) => {
+export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const { ref, inView } = useInView({
     fallbackInView: true,
   });

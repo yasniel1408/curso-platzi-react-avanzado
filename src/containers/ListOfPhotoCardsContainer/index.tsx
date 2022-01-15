@@ -6,7 +6,7 @@ type AppProps = {
   categoryId?: number;
 };
 
-export const ListOfPhotoCardsContainer: FC<AppProps> = ({ categoryId }: AppProps) => {
+export const ListOfPhotoCardsContainer: FC<AppProps> = ({ categoryId }) => {
   const { loading, error, data } = useQueryPhotosData({
     categoryId: categoryId || NaN,
   });

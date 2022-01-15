@@ -5,7 +5,7 @@ type AppProps = {
   data?: any;
 };
 
-export const PhotoCardDetail: FC<AppProps> = ({ data }: AppProps) => {
+export const PhotoCardDetail: FC<AppProps> = ({ data }) => {
   return (
     <div>
       <PhotoCard {...data} />

@@ -7,7 +7,7 @@ import { Details } from 'pages/Details';
 import { NavBar } from 'components/NavBar';
 import { Favs } from 'pages/Favs';
 import { User } from 'pages/User';
-import { Login } from 'pages/Login';
+import { UserAuthentication } from 'pages/UserAuthentication';
 import { useAuth } from 'context/hooks/useAuth';
 
 export const App: FC = () => {
@@ -29,8 +29,8 @@ export const App: FC = () => {
         </Router>
       ) : (
         <Router>
-          <Login path="/favs" />
-          <Login path="/user" />
+          <UserAuthentication path="/favs" />
+          <UserAuthentication path="/user" />
         </Router>
       )}
       <NavBar />

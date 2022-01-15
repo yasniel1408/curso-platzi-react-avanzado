@@ -5,7 +5,7 @@ type AppProps = {
   photos: [];
 };
 
-export const ListOfPhotoCards: FC<AppProps> = ({ photos }: AppProps) => {
+export const ListOfPhotoCards: FC<AppProps> = ({ photos }) => {
   return (
     <ul>
       {photos?.map((photo: any) => (

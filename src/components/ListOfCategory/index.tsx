@@ -7,7 +7,7 @@ type AppProps = {
   showFixed: boolean;
 };
 
-export const ListOfCategory: FC<AppProps> = ({ categories, showFixed }: AppProps) => {
+export const ListOfCategory: FC<AppProps> = ({ categories, showFixed }) => {
   const renderList = (fixed: boolean = false) => (
     <List fixed={fixed}>
       {categories.map((category: any) => (

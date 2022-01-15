@@ -7,14 +7,22 @@ type AppProps = {
   title: string;
 };
 
-export const UserForm: FC<AppProps> = ({ onSubmit, title }: AppProps) => {
+export const UserForm: FC<AppProps> = ({ onSubmit, title }) => {
   const email = useInputValue('');
   const password = useInputValue('');
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    onSubmit({
+      email: email.value,
+      password: password.value,
+    });
+  };
 
   return (
     <>
       <Title>{title}</Title>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Input type="email" placeholder="Email" {...email} />
         <Input type="password" placeholder="Password" {...password} />
         <Button type="submit">{title}</Button>

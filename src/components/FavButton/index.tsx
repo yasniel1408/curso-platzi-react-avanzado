@@ -9,7 +9,7 @@ type AppProps = {
   loading: boolean;
 };
 
-export const FavButton: FC<AppProps> = ({ like, likes, handleClick, loading }: AppProps) => {
+export const FavButton: FC<AppProps> = ({ like, likes, handleClick, loading }) => {
   const Icon = like ? MdFavorite : MdFavoriteBorder;
 
   return (

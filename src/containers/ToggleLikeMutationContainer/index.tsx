@@ -19,12 +19,7 @@ type AppProps = {
   handleLike?: any;
 };
 
-export const ToggleLikeMutationContainer: FC<AppProps> = ({
-  id,
-  like,
-  likes,
-  handleLike,
-}: AppProps) => {
+export const ToggleLikeMutationContainer: FC<AppProps> = ({ id, like, likes, handleLike }) => {
   const [likeAnonymousPhoto, { loading, error }] = useMutation(LIKE_PHOTO, {
     variables: { input: { id } },
   });
