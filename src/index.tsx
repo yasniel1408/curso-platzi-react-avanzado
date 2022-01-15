@@ -4,7 +4,8 @@ import { ApolloClient, ApolloProvider, ApolloLink, HttpLink, InMemoryCache } fro
 import { AuthProvider } from 'context/AuthProvider';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
-import { WorkboxProvider } from 'react-workbox';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
 
 const GRAPHQL_ENDPOINT = 'https://petgram-server-livid.vercel.app/graphql';
 
@@ -51,12 +52,13 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <WorkboxProvider interval={30 * 1000}>
-    <AuthProvider>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-    </AuthProvider>
-  </WorkboxProvider>,
+  <AuthProvider>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </AuthProvider>,
   document.getElementById('root'),
 );
+
+serviceWorkerRegistration.register();
+reportWebVitals();
