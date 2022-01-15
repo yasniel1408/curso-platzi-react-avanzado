@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Category } from '../Category';
 import { Item, List } from './styled';
 
@@ -7,7 +7,7 @@ type AppProps = {
   showFixed: boolean;
 };
 
-export const ListOfCategory: FC<AppProps> = ({ categories, showFixed }) => {
+const ListOfCategoryComponent: FC<AppProps> = ({ categories, showFixed }) => {
   const renderList = (fixed: boolean = false) => (
     <List fixed={fixed}>
       {categories.map((category: any) => (
@@ -25,3 +25,5 @@ export const ListOfCategory: FC<AppProps> = ({ categories, showFixed }) => {
     </>
   );
 };
+
+export const ListOfCategory = memo(ListOfCategoryComponent);

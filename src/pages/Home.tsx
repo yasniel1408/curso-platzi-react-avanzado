@@ -2,13 +2,13 @@ import { RouteComponentProps } from '@reach/router';
 import { Layout } from 'components/Layout';
 import { ListOfCategoryContainer } from 'containers/ListOfCategoryContainer';
 import { ListOfPhotoCardsContainer } from 'containers/ListOfPhotoCardsContainer';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 type AppProps = {
   categoryId?: number;
 } & RouteComponentProps;
 
-export const Home: FC<AppProps> = ({ categoryId }: AppProps) => (
+const HomeCompoent: FC<AppProps> = ({ categoryId }: AppProps) => (
   <Layout
     title="Tu app de fotos de mascotas"
     subtitle="Con Petgram puedes encontrar fotos de animales domésticos muy bonitos"
@@ -17,3 +17,7 @@ export const Home: FC<AppProps> = ({ categoryId }: AppProps) => (
     <ListOfPhotoCardsContainer categoryId={categoryId} />
   </Layout>
 );
+
+export const Home = memo(HomeCompoent, (prevProps, props) => {
+  return prevProps.categoryId === props.categoryId;
+});
