@@ -1,13 +1,15 @@
 import { useInputValue } from 'hooks/useInputValue';
 import { FC } from 'react';
-import { Button, Form, Input, Title } from './styled';
+import { Button, Error, Form, Input, Title } from './styled';
 
 type AppProps = {
   onSubmit: any;
   title: string;
+  loading: boolean;
+  error: any;
 };
 
-export const UserForm: FC<AppProps> = ({ onSubmit, title }) => {
+export const UserForm: FC<AppProps> = ({ onSubmit, title, loading, error }) => {
   const email = useInputValue('');
   const password = useInputValue('');
 
@@ -23,9 +25,12 @@ export const UserForm: FC<AppProps> = ({ onSubmit, title }) => {
     <>
       <Title>{title}</Title>
       <Form onSubmit={handleSubmit}>
-        <Input type="email" placeholder="Email" {...email} />
-        <Input type="password" placeholder="Password" {...password} />
-        <Button type="submit">{title}</Button>
+        <Input disabled={loading} type="email" placeholder="Email" {...email} />
+        <Input disabled={loading} type="password" placeholder="Password" {...password} />
+        <Button disabled={loading} type="submit">
+          {loading ? 'Submitting...' : title}
+        </Button>
+        {error && <Error>Submission error! {error.message}</Error>}
       </Form>
     </>
   );

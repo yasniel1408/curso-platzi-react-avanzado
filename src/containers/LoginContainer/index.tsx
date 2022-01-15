@@ -3,21 +3,21 @@ import { UserForm } from 'components/UserForm';
 import { FC } from 'react';
 import { useAuth } from 'context/hooks/useAuth';
 
-const REGISTER = gql`
-  mutation signup($input: UserCredentials!) {
-    signup(input: $input)
+const LOGIN = gql`
+  mutation login($input: UserCredentials!) {
+    login(input: $input)
   }
 `;
 
-export const RegisterContainer: FC = () => {
-  const [signup, { data, loading, error }] = useMutation(REGISTER);
+export const LoginContainer: FC = () => {
+  const [login, { data, loading, error }] = useMutation(LOGIN);
   const value: any = useAuth();
 
   const handleSubmit = async ({ email, password }: { email: string; password: string }) => {
     const input = { email, password };
-    await signup({ variables: { input } });
+    await login({ variables: { input } });
     value.activateAuth({ login: data.login });
   };
 
-  return <UserForm onSubmit={handleSubmit} title="Register:" loading={loading} error={error} />;
+  return <UserForm onSubmit={handleSubmit} title="Login:" loading={loading} error={error} />;
 };
