@@ -6,21 +6,14 @@ type AppProps = {
   like?: any;
   likes?: number;
   handleClick?: any;
-  loading: boolean;
 };
 
-export const FavButton: FC<AppProps> = ({ like, likes, handleClick, loading }) => {
+export const FavButton: FC<AppProps> = ({ like, likes, handleClick }) => {
   const Icon = like ? MdFavorite : MdFavoriteBorder;
 
   return (
     <Button onClick={() => handleClick()}>
-      {loading ? (
-        '...'
-      ) : (
-        <>
-          <Icon size="32px" /> {likes} likes!
-        </>
-      )}
+      <Icon size="32px" /> {likes} likes!
     </Button>
   );
 };

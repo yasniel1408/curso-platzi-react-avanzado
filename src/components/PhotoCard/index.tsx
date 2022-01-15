@@ -1,7 +1,6 @@
 import { Link } from '@reach/router';
 import { ToggleLikeMutationContainer } from 'containers/ToggleLikeMutationContainer';
-import { useLocalStorage } from 'hooks/useLocalStorage';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ImgWrapper, Img, Article } from './styled';
 
@@ -20,24 +19,11 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }) 
     fallbackInView: true,
   });
 
-  const { getPersistData, savePersistData, data, error } = useLocalStorage({
-    key: `like-${id}`,
-  });
-
   const [like, setLike] = useState(false);
-
-  useEffect(() => {
-    getPersistData();
-  }, [getPersistData]);
-
-  useEffect(() => {
-    data && setLike(data);
-  }, [data]);
 
   const handleLike = () => {
     const value: boolean = !like;
     setLike(value);
-    savePersistData({ data: value });
   };
 
   return (
@@ -49,7 +35,6 @@ export const PhotoCard: FC<AppProps> = ({ id, likes = 0, src = DEFAULT_IMAGE }) 
           </ImgWrapper>
         </Link>
       )}
-      {error}
       <ToggleLikeMutationContainer id={id} like={like} likes={likes} handleLike={handleLike} />
     </Article>
   );
